@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react'
+import axios from "axios"
 
 import Logo from "../images/eatspo.png"
 
@@ -16,6 +17,22 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        const userToLogin = {
+            username: username,
+            password: password
+        }
+
+        if ((userToLogin.username.length > 0) && (userToLogin.password.length > 0)) {
+            axios.post('http://localhost:5000/api/findUserByUserName', userToLogin)
+                .then(res => {
+                    console.log("printing ", res.data)
+                    window.location.replace("/feed");
+                })
+                .catch(err => console.log(err))
+        } else {
+            console.log('Not filled out')
+        }
     }
 
     return (
@@ -46,7 +63,7 @@ const Login = () => {
                     <div class="form-floating">
                         <input
                             required
-                            type="email"
+                            type="password"
                             class="form-control"
                             id="floatingInput"
                             placeholder="Password"

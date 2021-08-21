@@ -3,7 +3,7 @@ const router = express.Router();
 const Todo = require("../models/todo");
 const Users = require("../models/users");
 
-router.get("/findUserByUserName", (req, res, next) => {
+router.post("/findUserByUserName", (req, res, next) => {
   //this is to get the UserID
   //   let query = Users.find({ username: req.body.username });
   //   console.log(query);
