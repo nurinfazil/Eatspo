@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Todo from './components/examples/Todo';
-import './App.css';
+import Login from "./components/Login"
+import Error from "./components/Error"
 
 const App = () => {
   return (
-    <div className="App">
-      <Todo />
-    </div>
+    <main>
+      <Switch>
+        <Route path='/' component={Login} />
+        <Route component={Error} />
+
+      </Switch>
+    </main>
+    // <div className="App">
+    //   <Todo />
+    // </div>
   );
 }
 

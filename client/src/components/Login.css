@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+.login-screen {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.logo {
+    width: 300px !important;
+    margin-bottom: 2rem;
+}
+
+.login-title {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 20px;
+    text-align: center;
+    padding: 0rem 1.5rem;
+}
+
+.login-form {
+    font-family: Nunito !important;
+    
+}
+
+.login-form input {
+    width: 80vw;
+    margin: 1rem 0rem;
+}
+
+.login-btn button {
+    font-size: 18px !important;
+    font-weight: bold;
+    width: 80vw !important;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
