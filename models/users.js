@@ -40,7 +40,7 @@ const UserSchema = new Schema({
   },
 });
 
-//create model for todo
+//create model for users
 const User = mongoose.model("user", UserSchema);
 
 module.exports = User;

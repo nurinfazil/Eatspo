@@ -71,7 +71,7 @@ const PostSchema = new Schema({
   },
 });
 
-//create model for todo
-const Post = mongoose.model("post", UserSchema);
+//create model for posts
+const Post = mongoose.model("post", PostSchema);
 
 module.exports = Post;
