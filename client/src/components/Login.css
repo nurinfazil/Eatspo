@@ -46,3 +46,9 @@
     justify-content: center;
 }
 
+.success-mssg {
+    margin-top: 1rem;
+    font-size: 18px;
+    color: #DF2424;
+}
+

@@ -11,6 +11,7 @@ const Login = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [successMessage, setSuccessMessage] = useState("")
 
     const handleUsernameChange = (event) => setUsername(event.target.value)
     const handlePasswordChange = (event) => setPassword(event.target.value)
@@ -26,8 +27,14 @@ const Login = () => {
         if ((userToLogin.username.length > 0) && (userToLogin.password.length > 0)) {
             axios.post('http://localhost:5000/api/findUserByUserName', userToLogin)
                 .then(res => {
-                    console.log("printing ", res.data)
-                    window.location.replace("/feed");
+                    let correctPass = res.data[0].password
+
+                    if (correctPass == password) {
+                        window.location.replace("/feed");
+                        return
+                    } else {
+                        setSuccessMessage("Password incorrect. Please try again")
+                    }
                 })
                 .catch(err => console.log(err))
         } else {
@@ -44,7 +51,7 @@ const Login = () => {
                 <h1 className="login-title">Welcome! Login to find your next meal.</h1>
             </div>
 
-            <div >
+            <div>
                 <form className="login-form" onSubmit={handleSubmit}>
 
                     <div class="form-floating">
@@ -80,6 +87,12 @@ const Login = () => {
                         </Button>
                     </div>
                 </form>
+            </div>
+
+            <div>
+                <h4 className="success-mssg">
+                    {successMessage}
+                </h4>
             </div>
         </div>
     )

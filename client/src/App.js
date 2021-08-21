@@ -8,17 +8,13 @@ import Error from "./components/Error"
 
 const App = () => {
   return (
-    <main>
+    <div>
       <Switch>
-        <Route path='/' component={Login} />
+        <Route path='/login' component={Login} />
         <Route path='/feed' component={Home} />
         <Route component={Error} />
-
       </Switch>
-    </main>
-    // <div className="App">
-    //   <Todo />
-    // </div>
+    </div>
   );
 }
 
