@@ -36,7 +36,7 @@ const FooterMenu = ({ activePage }) => {
                         }
                     </Link>
                 </Col>
-                <Col className="menu-tile">
+                {/* <Col className="menu-tile">
                     <Link to="/discover">
                         {
                             activePage == "discover" ?
@@ -54,7 +54,7 @@ const FooterMenu = ({ activePage }) => {
                                 </div>
                         }
                     </Link>
-                </Col>
+                </Col> */}
                 <Col className="menu-tile">
                     <Link to="/profile">
                         {

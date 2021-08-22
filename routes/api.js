@@ -65,6 +65,18 @@ router.post("/findUserByUserName", (req, res, next) => {
     .catch(next);
 });
 
+//This is to get Users info from user schema
+router.post("/findUserByUserID", (req, res, next) => {
+  //this is to get the UserID
+  //   let query = Users.find({ username: req.body.username });
+  //   console.log(query);
+  Users.find({ _id: req.body.userID })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch(next);
+});
+
 //This is to return all posts, given userID
 router.post("/findPostsGivenUserID", (req, res, next) => {
   //   let query = Users.find({ username: req.body.username });

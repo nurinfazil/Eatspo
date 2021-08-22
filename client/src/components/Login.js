@@ -68,9 +68,9 @@ const Login = () => {
                             id="floatingInput"
                             onChange={handleUsernameChange}
                             value={username}
-                            placeholder="Email"
+                            placeholder="Username"
                         />
-                        <label for="floatingInput">Email</label>
+                        <label for="floatingInput">Username</label>
                     </div>
 
                     <div class="form-floating">

@@ -1,5 +1,6 @@
 .feed {
     background-color: #E8EEF3;
+    min-height: 100vh;
 }
 
 .add-new-post {
@@ -11,4 +12,36 @@
     border-radius: 50% !important;
     height: 66px;
     width: 66px;
+}
+
+.content {
+    padding: 100px 0px;
+}
+
+.post-img {
+    max-width: 155px;
+    border: 2px solid #18191F;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.post-title {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+.post-type {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.post-tile {
+    margin: 1rem 0rem;
 }
