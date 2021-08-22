@@ -49,16 +49,7 @@ const NewPost = () => {
             restaurantName: restaurantName,
             description: description,
             picture: "https://storage.googleapis.com/eatspo/" + encodeURI(window.localStorage.getItem("pictureURL")),
-            streetOne: streetOne,
-            streetTwo: streetTwo,
-            city: city,
-            province: province,
-            country: country,
             isRecipe: currentTab,
-            cookingTime: cookingTime,
-            servings: servings,
-            ingredients: ingredients,
-            directions: directions,
             link: link
         }
 

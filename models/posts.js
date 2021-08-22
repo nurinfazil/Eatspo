@@ -19,7 +19,6 @@ const PostSchema = new Schema({
 
   description: {
     type: String,
-    required: [true, "description field is required"],
   },
   picture: {
     type: String,
