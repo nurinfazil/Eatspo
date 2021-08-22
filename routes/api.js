@@ -4,12 +4,12 @@ const Todo = require("../models/todo");
 const Users = require("../models/users");
 const Posts = require("../models/posts");
 
-//Given a userID and a postID, update the savedPosts field in users.js and the savedBy field in posts.js
-router.post("/savePostGivenUserAndPostIds", (req, res, next) => {
+//Given a userID and a postID, update the savedPosts field in users.js
+router.post("/savedPostsUpdate", (req, res, next) => {
   Users.update(
     { userID: req.body.userID },
     {
-      $set: {
+      $push: {
         savedPosts: req.body.postID,
       },
     }
@@ -18,37 +18,22 @@ router.post("/savePostGivenUserAndPostIds", (req, res, next) => {
       res.json(data);
     })
     .catch(next);
+});
 
-  //   let tempObj = {};
-  //   Users.find({ userID: req.body.userID })
-  //     .then((data) => {
-  //       res.json(data);
-  //       console.log("first one, ", data[0]);
-  //       tempObj = data[0];
-  //       console.log("temp object ", tempObj);
-  //       const newUser = new Users({
-  //         _id: tempObj._id,
-  //         posts: tempObj.posts,
-  //         friends: tempObj.friends,
-  //         savedPosts: req.body.postID,
-  //         userID: tempObj.userID,
-  //         username: tempObj.username,
-  //         password: tempObj.password,
-  //         firstname: tempObj.firstname,
-  //         lastname: tempObj.lastname,
-  //         _v: tempObj._v,
-  //       });
-  //   console.log(newUser);
-
-  //   Users.updateOne({ userID: req.body.userID }, newUser)
-  //     .then((data) => {
-  //       res.json(data);
-  //     })
-  //     .catch(next);
-  //     })
-  //     .catch();
-
-  // TempObj.updateOne({ userID: req.body.userID }, { savedPosts: req.body.postID })
+//Given a userID and a postID, update the savedBy field in posts.js
+router.post("/savedByUpdate", (req, res, next) => {
+  Posts.update(
+    { postID: req.body.postID },
+    {
+      $push: {
+        savedBy: req.body.userID,
+      },
+    }
+  )
+    .then((data) => {
+      res.json(data);
+    })
+    .catch(next);
 });
 
 //This is to get Users info from user schema
