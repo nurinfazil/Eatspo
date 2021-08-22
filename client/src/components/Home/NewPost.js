@@ -35,7 +35,7 @@ const NewPost = () => {
     const handleServings = (event) => setServings(event.target.value)
     const handleIngredients = (event) => setIngredients(event.target.value)
     const handleDirections = (event) => setDirections(event.target.value)
-    const handleFileName = (event) => { setFileName(event.target.files[0].name); window.localStorage.setItem('picture-url', event.target.files[0].name); }
+    const handleFileName = (event) => { setFileName(event.target.files[0].name); window.localStorage.setItem('pictureURL', event.target.files[0].name); }
     const handleRestaurantName = (event) => setRestName(event.target.value)
 
     const handleSubmit = (event) => {
