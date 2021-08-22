@@ -7,7 +7,7 @@ const Posts = require("../models/posts");
 //Given a userID and a postID, update the savedPosts field in users.js
 router.post("/savedPostsUpdate", (req, res, next) => {
   Users.update(
-    { userID: req.body.userID },
+    { _id: req.body.userID },
     {
       $push: {
         savedPosts: req.body.postID,
@@ -23,7 +23,7 @@ router.post("/savedPostsUpdate", (req, res, next) => {
 //Given a userID and a postID, update the savedBy field in posts.js
 router.post("/savedByUpdate", (req, res, next) => {
   Posts.update(
-    { postID: req.body.postID },
+    { _id: req.body.postID },
     {
       $push: {
         savedBy: req.body.userID,
@@ -53,7 +53,7 @@ router.post("/findUserByUserName", (req, res, next) => {
 router.post("/findPostsGivenUserID", (req, res, next) => {
   //   let query = Users.find({ username: req.body.username });
   //   console.log(query);
-  Posts.find({ userID: req.body.userID })
+  Posts.find({ _id: req.body.userID })
     .then((data) => {
       res.json(data);
       console.log(data[0]);
