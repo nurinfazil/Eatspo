@@ -85,7 +85,6 @@ app.post('/upload', multer.single('file'), (req, res, next) => {
 
     blobStream.end(req.file.buffer);
 
-
     res.redirect("http://localhost:3000/new-post")
 
 });

@@ -76,13 +76,16 @@ router.post("/users", (req, res, next) => {
 router.post("/posts", (req, res, next) => {
   if (req.body) {
     Posts.create(req.body)
-      .then((data) => res.json(data))
+      .then((data) => {
+        res.json(data);
+      })
       .catch(next);
   } else {
     res.json({
       error: "The input field is empty",
     });
   }
+
 });
 
 router.get("/todos", (req, res, next) => {

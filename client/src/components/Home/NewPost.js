@@ -42,6 +42,7 @@ const NewPost = () => {
         event.preventDefault();
 
         const uploadNewPost = {
+            userID: window.localStorage.getItem("userID"),
             title: title,
             restaurantName: restaurantName,
             description: description,
@@ -59,7 +60,10 @@ const NewPost = () => {
         }
 
         axios.post('http://localhost:5000/api/posts', uploadNewPost)
-            .then(res => { console.log(res.data) })
+            .then(res => {
+                console.log(res.data);
+                window.location.replace("http://localhost:3000/feed");
+            })
             .catch(err => console.log(err))
     }
 
