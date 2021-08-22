@@ -1,0 +1,14 @@
+.feed {
+    background-color: #E8EEF3;
+}
+
+.add-new-post {
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
+    background-color: #76A35B !important;
+    border: 3px solid white !important;
+    border-radius: 50% !important;
+    height: 66px;
+    width: 66px;
+}

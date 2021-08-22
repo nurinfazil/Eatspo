@@ -30,6 +30,12 @@ const Login = () => {
                     let correctPass = res.data[0].password
 
                     if (correctPass == password) {
+                        window.localStorage.setItem('userID', res.data[0]._id);
+                        window.localStorage.setItem('username', res.data[0].username);
+                        window.localStorage.setItem('firstName', res.data[0].firstname);
+                        window.localStorage.setItem('lastName', res.data[0].lastname);
+                        window.localStorage.setItem('friends', res.data[0].friends);
+                        window.localStorage.setItem('savedPosts', res.data[0].savedPosts);
                         window.location.replace("/feed");
                         return
                     } else {

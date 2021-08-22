@@ -79,8 +79,13 @@ app.post('/upload', multer.single('file'), (req, res, next) => {
         const publicUrl = format(
             `https://storage.googleapis.com/${bucket.name}/${blob.name}`
         );
-        res.status(200).send(publicUrl);
+        res.status(200)
+        // .send(publicUrl);
     });
 
     blobStream.end(req.file.buffer);
+
+
+    res.redirect("http://localhost:3000/new-post")
+
 });

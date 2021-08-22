@@ -5,12 +5,20 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
   postID: {
     type: String,
-    required: [true, "postID field is required"],
   },
 
   userID: {
     type: String,
     required: [true, "userID field is required"],
+  },
+
+  title: {
+    type: String,
+    required: [true, "title field is required"],
+  },
+
+  restaurantName: {
+    type: String,
   },
 
   description: {
@@ -46,10 +54,7 @@ const PostSchema = new Schema({
     type: String,
   },
 
-  postalCode: {
-    type: String,
-  },
-
+  // 0: restaurant, 1: recipe
   isRecipe: {
     type: Boolean,
   },
