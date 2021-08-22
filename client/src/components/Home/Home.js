@@ -78,9 +78,7 @@ const Home = () => {
                 <Row>
                     {
                         postsToShow.length === 0 ?
-                            <div>
-                                <h3>Nothing to see here. Follow people to fill up your feed!</h3>
-                            </div> :
+                            null :
 
                             postsToShow.map(item => {
                                 return (
