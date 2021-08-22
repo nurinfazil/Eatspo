@@ -96,7 +96,7 @@ const NewPost = () => {
                         onChange={handleFileName} />
                     <a href="http://localhost:5000/uploader"><button>Submit</button></a>
 
-                    {window.localStorage.getItem("pictureURL").length > 0 ? <div>Uploaded {window.localStorage.getItem("pictureURL")}</div> : null}
+                    {(window.localStorage.getItem("pictureURL") != undefined && window.localStorage.getItem("pictureURL").length > 0) ? <div>Uploaded {window.localStorage.getItem("pictureURL")}</div> : null}
                 </div>
 
                 <form className="new-post-form" onSubmit={handleSubmit}>
