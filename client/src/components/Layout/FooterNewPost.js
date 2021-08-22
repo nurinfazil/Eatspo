@@ -13,19 +13,19 @@ import UserGrey from "../../images/user-grey.png"
 
 import "./FooterMenu.css"
 
-const FooterMenu = ({ activePage }) => {
+const FooterNewPost = ({ activePage }) => {
     return (
         <div className="footer">
             <Row>
                 <Col className="menu-tile">
-                    {/* <Link to="/feed">
+                    <Link to="/feed">
                         {
                             activePage == "feed" ?
                                 <div>
                                     <div className="menu-icon" >
                                         <img src={FeedBlack} />
                                     </div>
-                                    <div className="active">Feed</div>
+                                    <div className="active">back to eatspo board</div>
                                 </div> :
                                 <div>
                                     <div className="menu-icon">
@@ -34,8 +34,8 @@ const FooterMenu = ({ activePage }) => {
                                     <div className="inactive">Feed</div>
                                 </div>
                         }
-                    </Link> */}
-                    <div className="active">tap on a picture to check it out!</div>
+                    </Link>
+                    {/* <div className="active">tap on a picture to check it out!</div> */}
 
                 </Col>
                 {/* <Col className="menu-tile">
@@ -81,4 +81,4 @@ const FooterMenu = ({ activePage }) => {
     )
 }
 
-export default FooterMenu
+export default FooterNewPost

@@ -1,5 +1,6 @@
 .new-post {
     background-color: #E8EEF3;
+    min-height: 100vh;
 }
 
 .content {

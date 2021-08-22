@@ -26,6 +26,11 @@ const PostSchema = new Schema({
     required: [true, "picture field is required"],
   },
 
+  link: {
+    type: String,
+    required: [true, "link field is required"],
+  },
+
   savedBy: {
     type: Array,
   },

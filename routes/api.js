@@ -100,6 +100,13 @@ router.post("/users", (req, res, next) => {
   }
 });
 
+router.get("/posts", (req, res, next) => {
+  //this will return all the data, exposing only the id and action field to the client
+  Posts.find({},)
+    .then((data) => res.json(data))
+    .catch(next);
+});
+
 router.post("/posts", (req, res, next) => {
   if (req.body) {
     Posts.create(req.body)

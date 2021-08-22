@@ -35,32 +35,39 @@ const Home = () => {
 
     useEffect(() => {
 
-        axios.post("http://localhost:5000/api/findUserByUserName", usernameToSearch)
+        // axios.post("http://localhost:5000/api/findUserByUserName", usernameToSearch)
+        //     .then(res => {
+        //         setUsersFriends(res.data[0].friends);
+
+        //         res.data[0].friends.map(friend => {
+        //             let userToPass = { userID: friend }
+        //             axios.post("http://localhost:5000/api/findPostsGivenUserID", userToPass)
+        //                 .then(res => {
+        //                     console.log("geting posts: ", res.data);
+        //                     res.data.map(post => {
+        //                         setPostsToShow(postsToShow => [...postsToShow, post]);
+        //                     })
+        //                 })
+        //                 .catch();
+        //         }
+
+        //         )
+
+        //     })
+        //     .catch()
+
+
+        axios.get("http://localhost:5000/api/posts")
             .then(res => {
-                setUsersFriends(res.data[0].friends);
-
-                res.data[0].friends.map(friend => {
-                    let userToPass = { userID: friend }
-                    axios.post("http://localhost:5000/api/findPostsGivenUserID", userToPass)
-                        .then(res => {
-                            console.log("geting posts: ", res.data);
-                            res.data.map(post => {
-                                setPostsToShow(postsToShow => [...postsToShow, post]);
-                            })
-                        })
-                        .catch();
-                }
-
-                )
-
+                console.log("posts: ", res.data)
+                setPostsToShow(res.data)
             })
-            .catch()
 
     }, [])
 
     return (
         <div className="feed">
-            <Header pageTitle="feed" />
+            <Header pageTitle="eatspo" />
             <Footer activePage="feed" />
             <Link to="/new-post">
                 <Button className="add-new-post">
@@ -78,14 +85,15 @@ const Home = () => {
                             postsToShow.map(item => {
                                 return (
                                     <Col className="post-tile" xs={6} md={6}>
-                                        <img className="post-img" src={item.picture} />
-                                        <h3 className="post-title">{item.title}</h3>
+                                        <a href={item.link} target="_blank">
 
-                                        <Col>
-                                            <h4 className="post-type">{item.isRecipe ? "Recipe" : "Restaurant"}</h4>
-                                        </Col>
+                                            <img className="post-img" src={item.picture} />
+                                            <h3 className="post-title">{item.title}</h3>
 
-
+                                            <Col>
+                                                <h4 className="post-type">{item.isRecipe ? "Recipe" : item.restaurantName}</h4>
+                                            </Col>
+                                        </a>
                                     </Col>
                                 )
                             })

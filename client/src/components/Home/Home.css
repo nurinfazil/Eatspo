@@ -45,3 +45,8 @@
 .post-tile {
     margin: 1rem 0rem;
 }
+
+a {
+    color: black !important;
+    text-decoration: none !important;
+}

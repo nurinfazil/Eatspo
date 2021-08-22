@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from "axios"
 import Header from "../Layout/Header"
-import Footer from "../Layout/FooterMenu"
+import Footer from "../Layout/FooterNewPost"
 
 import { Row, Col, Button } from "react-bootstrap"
 
@@ -23,6 +23,7 @@ const NewPost = () => {
     const [directions, setDirections] = useState("")
     const [fileName, setFileName] = useState("")
     const [restaurantName, setRestName] = useState("")
+    const [link, setLink] = useState("")
 
     const handleTitleChange = (event) => setTitle(event.target.value)
     const handleDescriptionChange = (event) => setDescription(event.target.value)
@@ -37,6 +38,7 @@ const NewPost = () => {
     const handleDirections = (event) => setDirections(event.target.value)
     const handleFileName = (event) => { setFileName(event.target.files[0].name); window.localStorage.setItem('pictureURL', event.target.files[0].name); }
     const handleRestaurantName = (event) => setRestName(event.target.value)
+    const handleLinkChange = (event) => setLink(event.target.value)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -56,7 +58,8 @@ const NewPost = () => {
             cookingTime: cookingTime,
             servings: servings,
             ingredients: ingredients,
-            directions: directions
+            directions: directions,
+            link: link
         }
 
         axios.post('http://localhost:5000/api/posts', uploadNewPost)
@@ -114,7 +117,7 @@ const NewPost = () => {
                         <label for="floatingInput">Post Title</label>
                     </div>
 
-                    <div class="form-floating">
+                    {/* <div class="form-floating">
                         <input
                             required
                             type="text"
@@ -125,7 +128,7 @@ const NewPost = () => {
                             placeholder="Description"
                         />
                         <label for="floatingInput">Description</label>
-                    </div>
+                    </div> */}
 
                     <div className={currentTab == 0 ? "form-floating" : "d-none form-floating"}>
                         <input
@@ -139,7 +142,20 @@ const NewPost = () => {
                         <label for="floatingInput">Restaurant Name</label>
                     </div>
 
-                    <div className={currentTab == 0 ? "form-floating" : "d-none form-floating"}>
+                    <div class="form-floating">
+                        <input
+                            required
+                            type="text"
+                            class="form-control"
+                            id="floatingInput"
+                            onChange={handleLinkChange}
+                            value={link}
+                            placeholder="Link so others can check it out!"
+                        />
+                        <label for="floatingInput">Link so others can check it out!</label>
+                    </div>
+
+                    {/* <div className={currentTab == 0 ? "form-floating" : "d-none form-floating"}>
                         <input
                             type="text"
                             class="form-control"
@@ -245,7 +261,7 @@ const NewPost = () => {
                             placeholder="Directions"
                         />
                         <label for="floatingInput">Directions</label>
-                    </div>
+                    </div> */}
 
                     <div className="post-button">
                         <Button
