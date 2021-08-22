@@ -4,6 +4,22 @@ const Todo = require("../models/todo");
 const Users = require("../models/users");
 const Posts = require("../models/posts");
 
+//Given 2 user ideas, add 1 to the others friends array
+router.post("/addFriends", (req, res, next) => {
+  Users.update(
+    { _id: req.body.userIDadder },
+    {
+      $push: {
+        friends: req.body.userIDtarget,
+      },
+    }
+  )
+    .then((data) => {
+      res.json(data);
+    })
+    .catch(next);
+});
+
 //Given a userID and a postID, update the savedPosts field in users.js
 router.post("/savedPostsUpdate", (req, res, next) => {
   Users.update(
@@ -85,7 +101,6 @@ router.post("/posts", (req, res, next) => {
       error: "The input field is empty",
     });
   }
-
 });
 
 router.get("/todos", (req, res, next) => {
