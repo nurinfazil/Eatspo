@@ -69,10 +69,9 @@ router.post("/findUserByUserName", (req, res, next) => {
 router.post("/findPostsGivenUserID", (req, res, next) => {
   //   let query = Users.find({ username: req.body.username });
   //   console.log(query);
-  Posts.find({ _id: req.body.userID })
+  Posts.find({ userID: req.body.userID })
     .then((data) => {
       res.json(data);
-      console.log(data[0]);
     })
     .catch(next);
 });
