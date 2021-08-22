@@ -42,11 +42,10 @@ const NewPost = () => {
         event.preventDefault();
 
         const uploadNewPost = {
-            userID: window.localStorage.getItem("userID"),
             title: title,
             restaurantName: restaurantName,
             description: description,
-            picture: "https://storage.googleapis.com/eatspo/" + window.localStorage.getItem("picture_url"),
+            picture: "https://storage.googleapis.com/eatspo/" + encodeURI(window.localStorage.getItem("pictureURL")),
             streetOne: streetOne,
             streetTwo: streetTwo,
             city: city,
@@ -93,7 +92,7 @@ const NewPost = () => {
                         onChange={handleFileName} />
                     <a href="http://localhost:5000/uploader"><button>Submit</button></a>
 
-                    {window.localStorage.getItem("picture-url").length > 0 ? <div>Uploaded {window.localStorage.getItem("picture-url")}</div> : null}
+                    {window.localStorage.getItem("pictureURL").length > 0 ? <div>Uploaded {window.localStorage.getItem("pictureURL")}</div> : null}
                 </div>
 
                 <form className="new-post-form" onSubmit={handleSubmit}>

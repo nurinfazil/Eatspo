@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 //create schema for users
 const PostSchema = new Schema({
+  userID: {
+    type: String,
+    required: [true, "userID field is required"],
+  },
+
   title: {
     type: String,
     required: [true, "title field is required"],
